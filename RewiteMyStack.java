@@ -1,35 +1,45 @@
-class MyStack extends java.util.ArrayList<Object> {
+class MyStack implements Cloneable {
+	private ArrayList<Object> list = new ArrayList<Object>();
 
 	//is the stack empty?
 	public boolean isEmpty() {
-		return super.isEmpty();
+		return list.isEmpty();
 	}
 
 	//get the number of the elements 
 	public int getSize() {
-		return size();
+		return list.size();
 	}
 
 	//return the top element in the stack
 	public Object peek() {
-		return get(getSize() - 1);
+		return list.get(getSize() - 1);
 	}
 
 	//return and remove the top element in the stack
 	public Object pop() {
-		Object o = get(getSize() - 1);
-		remove(getSize() - 1);
+		Object o = list.get(getSize() - 1);
+		list.remove(getSize() - 1);
 		return o;
 	}
 
 	//add a new element to the top of the stack
-	public Object push(Object o) {
-		add(o);
-		return o;
+	public void push(Object o) {
+		list.add(o);
 	}
 
-	@Override
+	/** Override the toString in the Object class */
 	public String toString() {
-		return "stack: " + toString();
+		return "stack: " + list.toString();
+	}
+
+	public Object clone() throws CloneNotSupportedException {
+	
+			//Perform a shallow copy
+			MyStack stack = (MyStack) super.clone();
+			//Deep copy on list
+			stack.list = (ArrayList<Object>) this.list.clone();
+			return stack;
 	}
 }
+
