@@ -33,13 +33,16 @@ class MyStack implements Cloneable {
 		return "stack: " + list.toString();
 	}
 
-	public Object clone() throws CloneNotSupportedException {
-	
+	public Object clone() {
+		try {
 			//Perform a shallow copy
 			MyStack stack = (MyStack) super.clone();
 			//Deep copy on list
-			stack.list = (ArrayList<Object>) this.list.clone();
+			stack.list = (ArrayList<Object>) this.list.clone();//Deep copy on list
 			return stack;
+		} catch (CloneNotSupportedException ex) {
+			return null;
+		}
 	}
 }
 
