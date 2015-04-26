@@ -1,3 +1,33 @@
+/**
+ * ID:U10316013
+ * NAME:HSIAO,TZU-CHI
+ * EX:15.10
+ */
+ 
+import java.util.ArrayList;
+
+public class RewiteMyStack {
+	public static void main(String[] args) {
+		MyStack hahaStack = new MyStack();
+		
+		//add a new element to the top of the hahaStack
+		hahaStack.push("see");
+		hahaStack.push("you");
+		hahaStack.push("again");
+		hahaStack.push("my friend");
+
+		//add a new element to the top of the hohoStack
+		MyStack hohoStack = (MyStack)(hahaStack.clone());
+		hohoStack.push("see");
+		hohoStack.push("you");
+		hohoStack.push("again");
+		hohoStack.push("my friend");
+
+		System.out.println(hahaStack.getSize());
+		System.out.println(hohoStack.getSize());
+	}
+}
+
 class MyStack implements Cloneable {
 	private ArrayList<Object> list = new ArrayList<Object>();
 
@@ -45,4 +75,5 @@ class MyStack implements Cloneable {
 		}
 	}
 }
+
 
