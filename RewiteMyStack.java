@@ -68,7 +68,7 @@ class MyStack implements Cloneable {
 			//Perform a shallow copy
 			MyStack stack = (MyStack) super.clone();
 			//Deep copy on list
-			stack.list = (ArrayList<Object>) this.list.clone();//Deep copy on list
+			stack.list = (ArrayList<Object>) this.list.clone();
 			return stack;
 		} catch (CloneNotSupportedException ex) {
 			return null;
